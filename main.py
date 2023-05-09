@@ -1,26 +1,40 @@
-# oscar j palomares
+# oscar palomares
 # main.py
-# program that will accept student names and GPAs
-# and test if the student qualifies for either the Dean's List or the Honor Rol
+# m03
+
+class Vehicle:
+    def __init__(self, vehicle_type):
+        self.vehicle_type = vehicle_type
 
 
-firstName = ""
-gpa = 0
+class Automobile(Vehicle):
+    def __init__(self, vehicle_type, year, make, model, doors, roof):
+        super().__init__(vehicle_type)
+        self.year = year
+        self.make = make
+        self.model = model
+        self.doors = doors
+        self.roof = roof
 
-while True:
-    lastName = input("Please input your last name: ")
+    def __str__(self):
+        return (
+            f"Vehicle type: {self.vehicle_type}\n"
+            f"Year: {self.year}\n"
+            f"Make: {self.make}\n"
+            f"Model: {self.model}\n"
+            f"Number of doors: {self.doors}\n"
+            f"Type of roof: {self.roof}\n"
+        )
 
-    if lastName == "ZZZ":
-        break
 
-    else:
-        firstName = input("Please input your first name: ")
-        gpa = float(input("Please input your GPA: "))
-        break
+car = Automobile(
+    input("What type of vehicle: "),
+    input("What year is the vehicle: "),
+    input("What is the make: "),
+    input("What is the model: "),
+    input("How many doors: "),
+    input("Does it have a solid roof or sun roof: "),
+)
 
-if gpa >= 3.5:
-    print(firstName.capitalize() + " " + lastName.capitalize() + " has made the Dean's List.")
-elif gpa >= 3.25:
-    print(firstName.capitalize() + " " + lastName.capitalize() + " has made the Honor Roll.")
-else:
-    print("")
+print(car)
+
